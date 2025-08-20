@@ -117,7 +117,7 @@ module Master_SPI_INTF #(
    reg done_negav_transmit; 
    reg state_negav;
     always @(negedge SCLN or negedge resetn) begin
-        if(!resetn) begin s_data_negav <= 0; cnt_bit_negav<=0; done_negav_transmit<=0; state_negav<=0; end 
+        if(!resetn) begin s_data_negav <= 0; cnt_bit_negav<=0; done_negav_transmit<=1; state_negav<=0; end 
         else begin
                 done_negav_transmit<=0;
                 cnt_bit_negav <= cnt_bit_negav +1; 
@@ -132,7 +132,7 @@ module Master_SPI_INTF #(
    reg done_pos_transmit; 
    reg state_pos;
     always @(posedge SCLN or negedge resetn) begin
-        if(!resetn) begin s_data_posive <= 0; cnt_bit_pos<=0; done_pos_transmit<=0; state_pos <=0; end 
+        if(!resetn) begin s_data_posive <= 0; cnt_bit_pos<=0; done_pos_transmit<=1; state_pos <=0; end 
         else begin
                 done_pos_transmit<=0;
                 cnt_bit_pos <= cnt_bit_pos +1; 
